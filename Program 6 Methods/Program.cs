@@ -13,7 +13,10 @@ namespace Program_6_Methods
             int[] numberArray = GenerateNumbers(10);
             numberArray = ReOrderArray(numberArray);
             PrintArray(numberArray);
-            Console.WriteLine(Fibonacci(24));
+            //Console.WriteLine(IterativeFibonacci(24));
+            Console.WriteLine("The first 10 elements in the fibonacci sequence are:");
+            for (int i = 0; i < 10; i++) Console.Write(RecursiveFibonacci(i+1)+", ");
+            Console.WriteLine();
         }
         static int[] GenerateNumbers(int size)
         {
@@ -49,7 +52,7 @@ namespace Program_6_Methods
                 Console.Write(entry + " ");
             Console.Write("\n");
         }
-        static int Fibonacci(int fibIndex)
+        static int IterativeFibonacci(int fibIndex)
         {
             if (fibIndex == 1 || fibIndex == 2) return 1;
             else if (fibIndex <= 0)
@@ -67,6 +70,13 @@ namespace Program_6_Methods
                 if (i == tempIndex) return fibArray[i];
             }
             return fibArray[fibArray.Length - 1];
+        }
+        static int RecursiveFibonacci(int fibIndex)
+        {
+            //base case
+            if (fibIndex == 1 || fibIndex == 2) return 1;
+            else 
+            return RecursiveFibonacci(fibIndex-1) + RecursiveFibonacci(fibIndex-2);
         }
     }
 }
