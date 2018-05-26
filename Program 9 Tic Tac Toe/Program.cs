@@ -28,6 +28,7 @@ namespace Program_9_Tic_Tac_Toe
             bool validPlayAgain = false;
             bool firstGame = true;
             bool gameWasDraw = false;
+            bool isRematch = false;
 
             while (userInput != "exit")
             {
@@ -35,9 +36,12 @@ namespace Program_9_Tic_Tac_Toe
                 if (firstGame == false)
                 {
                     Console.Clear();
-                    PrintMenu();
+                    //PrintMenu();
                 }
-                userInput = Console.ReadLine();
+                if (isRematch == false)
+                {
+                    userInput = Console.ReadLine();
+                }
 
 
                 if (userInput == "exit")                                // Exit functionality
@@ -200,6 +204,7 @@ namespace Program_9_Tic_Tac_Toe
                             validPlayAgain = true;
                             isGameOver = false;
                             display = new GameBoard();
+                            isRematch = true;
                             continue;
                         }
                         else if (userInput == "n")
@@ -213,7 +218,7 @@ namespace Program_9_Tic_Tac_Toe
                     validPlayAgain = false;                                             // resetting for next match
                     playerTurn++;                                                       // alternating who goes first
                     playerTurn %= 2;
-                    continue;
+                    //continue;
                 }
             }
         }
